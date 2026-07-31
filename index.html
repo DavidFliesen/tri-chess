@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#131a25" />
+  <meta name="description" content="A three-player chess PWA where defeating an opponent gives you command of their remaining army." />
+  <title>TriChess: Conquered Armies</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">ARTEZIQ PROTOTYPE</p>
+      <h1>TriChess</h1>
+      <p class="subtitle">Defeat an opponent. Command their army.</p>
+    </div>
+    <button id="installButton" class="button secondary" hidden>Install App</button>
+  </header>
+
+  <main class="app-shell">
+    <section class="game-column" aria-label="TriChess game">
+      <div class="status-card">
+        <div class="turn-display">
+          <span id="turnDot" class="turn-dot gold"></span>
+          <div>
+            <span class="status-label">Current commander</span>
+            <strong id="turnText">Gold</strong>
+          </div>
+        </div>
+        <div class="status-message" id="statusMessage" aria-live="polite">Select a Gold piece.</div>
+      </div>
+
+      <div class="board-frame">
+        <div id="board" class="board" role="grid" aria-label="Three-player chess board"></div>
+      </div>
+
+      <div class="controls" aria-label="Game controls">
+        <button id="newGameButton" class="button primary">New Game</button>
+        <button id="undoButton" class="button secondary">Undo</button>
+        <button id="rotateButton" class="button secondary">Rotate Board</button>
+        <button id="soundButton" class="button secondary" aria-pressed="true">Sound: On</button>
+      </div>
+    </section>
+
+    <aside class="info-column">
+      <section class="panel">
+        <h2>Armies</h2>
+        <div class="army-list">
+          <div class="army-row" id="army-gold">
+            <span class="army-chip gold">Gold</span>
+            <span id="goldStatus">16 pieces</span>
+          </div>
+          <div class="army-row" id="army-blue">
+            <span class="army-chip blue">Blue</span>
+            <span id="blueStatus">16 pieces</span>
+          </div>
+          <div class="army-row" id="army-red">
+            <span class="army-chip red">Red</span>
+            <span id="redStatus">16 pieces</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Prototype rules</h2>
+        <ol class="rules-list">
+          <li>Gold, Blue, and Red move clockwise.</li>
+          <li>Pieces use familiar chess movement on this prototype board.</li>
+          <li>Capture an enemy king to eliminate that commander.</li>
+          <li>The defeated army immediately comes under your control.</li>
+          <li>You may move one piece from any army you command each turn.</li>
+          <li>The last surviving king wins.</li>
+        </ol>
+        <p class="note">Castling and en passant are not included in this first build. Pawns promote automatically to queens.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Build status</h2>
+        <ul class="feature-list">
+          <li>Local three-player pass-and-play</li>
+          <li>Offline installation</li>
+          <li>Legal move highlighting</li>
+          <li>Check protection</li>
+          <li>Conquered-army transfer</li>
+          <li>Undo and saved game state</li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <span>TriChess: Conquered Armies</span>
+    <span>Version 0.1 prototype</span>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
